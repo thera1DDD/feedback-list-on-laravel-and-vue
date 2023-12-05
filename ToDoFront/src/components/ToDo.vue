@@ -59,33 +59,8 @@
                             <button type="button" class="btn btn-danger"  style="width: 134px" @click.prevent="remove(todo)">Удалить</button>
                         </td>
                     </tr>
-
                     </tbody>
                 </table>
-<!--                <table class="table table-dark">-->
-<!--                    <thead>-->
-<!--                    <tr>-->
-<!--                        <th scope="col">ID</th>-->
-<!--                        <th scope="col">Todo Name</th>-->
-<!--                        <th scope="col">Address</th>-->
-<!--                        <th scope="col">Phone</th>-->
-<!--                        <th scope="col">Option</th>-->
-<!--                    </tr>-->
-<!--                    </thead>-->
-<!--                    <tbody>-->
-<!--                    <tr v-for="todo in result" v-bind:key="todo.id">-->
-<!--                        <td>{{ todo.id }}</td>-->
-<!--                        <td>{{ todo.case }}</td>-->
-<!--                        <td>{{ todo.description }}</td>-->
-<!--                        <td>{{ todo.is_completed }}</td>-->
-<!--                        <td>-->
-<!--                            <button type="button" class="btn btn-warning" @click="edit(todo)">Edit</button>-->
-<!--                            <button type="button" class="btn btn-danger"  @click="remove(todo)">Delete</button>-->
-<!--                        </td>-->
-<!--                    </tr>-->
-
-<!--                    </tbody>-->
-<!--                </table>-->
             </div>
         </div>
     </div>
@@ -207,7 +182,6 @@ export default {
 
         remove(todo){
             var url = `http://127.0.0.1:8000/api/todo/${todo.id}`;
-            // var url = 'http://127.0.0.1:8000/api/todo/'+ todo.id;
             axios.delete(url);
             this.TodoLoad();
         }

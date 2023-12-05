@@ -10,10 +10,8 @@
                     {{ error }}
                 </div>
                 <form>
-                    <!-- Submit button -->
                     <button  v-if="isAdmin" @click.prevent="launchSeed()" type="button" class="btn btn-primary btn-block mb-4">Launch</button>
                     <button  v-if="!isAdmin" disabled type="button" class="btn btn-primary btn-block mb-4">Launch</button>
-                    <!-- Register buttons -->
                 </form>
             </div>
         </div>

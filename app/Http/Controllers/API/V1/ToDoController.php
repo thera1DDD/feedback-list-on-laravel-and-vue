@@ -31,7 +31,9 @@ class ToDoController extends Controller
     {
         $data = $request->validated();
         $notification = new NoteCreated($data);
+        //отправка уведомления на почту
         Notification::route('mail',env('MAIL_TO'))->notify($notification);
+        //
         ToDoList::create($data);
         return response()->json(['data'=>$data]);
     }
