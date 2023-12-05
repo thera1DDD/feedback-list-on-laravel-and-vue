@@ -1,0 +1,323 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My Doc API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/": {},
+        "/api/todo": {
+            "get": {
+                "tags": [
+                    "ToDo"
+                ],
+                "summary": "Получение списка заметок",
+                "operationId": "eb04305d01f2a0e0034aa4eb626e9772",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "2"
+                                        },
+                                        "case": {
+                                            "type": "string",
+                                            "example": "Название дела"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "Описание дела"
+                                        },
+                                        "is_completed": {
+                                            "type": "integer",
+                                            "example": 0
+                                        },
+                                        "users_id": {
+                                            "type": "integer",
+                                            "example": "2"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "example": "2023-12-04T14:41:17.000000Z"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "example": "2023-12-04T14:41:17.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "ToDo"
+                ],
+                "summary": "Создание заметок",
+                "operationId": "8ab21fb12c9697505dc97ad1a64fb0cc",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "case": {
+                                                "type": "string",
+                                                "example": "Название дела"
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "example": "Описание дела"
+                                            },
+                                            "is_completed": {
+                                                "type": "integer",
+                                                "example": 2
+                                            },
+                                            "users_id": {
+                                                "type": "integer",
+                                                "example": "2"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "case": {
+                                                    "type": "string",
+                                                    "example": "Название дела"
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": "Описание дела"
+                                                },
+                                                "is_completed": {
+                                                    "type": "integer",
+                                                    "example": 0
+                                                },
+                                                "users_id": {
+                                                    "type": "integer",
+                                                    "example": "2"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/todo/{todo}": {
+            "get": {
+                "tags": [
+                    "ToDo"
+                ],
+                "summary": "Получение списка заметок по users_id",
+                "operationId": "3fff6cd7e186189bb4cd1acf47c12c89",
+                "parameters": [
+                    {
+                        "name": "users_id",
+                        "in": "path",
+                        "description": "id пользователя добавляющего заметку",
+                        "required": true,
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "2"
+                                        },
+                                        "case": {
+                                            "type": "string",
+                                            "example": "Название дела"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "Описание дела"
+                                        },
+                                        "is_completed": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "users_id": {
+                                            "type": "integer",
+                                            "example": "2"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "example": "2023-12-04T14:41:17.000000Z"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "example": "2023-12-04T14:41:17.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "ToDo"
+                ],
+                "summary": "Удаление заметки",
+                "operationId": "14b54c49e362a90f40708c0007f800ea",
+                "parameters": [
+                    {
+                        "name": "todo",
+                        "in": "path",
+                        "description": "id заметки",
+                        "required": true,
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "done"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "ToDo"
+                ],
+                "summary": "Обновление заметки",
+                "operationId": "dd8d9d55c2720416570c5d730b751467",
+                "parameters": [
+                    {
+                        "name": "todo",
+                        "in": "path",
+                        "description": "id заметки",
+                        "required": true,
+                        "example": "35"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "case": {
+                                                "type": "string",
+                                                "example": "Название дела"
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "example": "Описание дела"
+                                            },
+                                            "is_completed": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "users_id": {
+                                                "type": "integer",
+                                                "example": "2"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "2"
+                                        },
+                                        "case": {
+                                            "type": "string",
+                                            "example": "Название дела"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "Описание дела"
+                                        },
+                                        "is_completed": {
+                                            "type": "integer",
+                                            "example": 2
+                                        },
+                                        "users_id": {
+                                            "type": "integer",
+                                            "example": "2"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "example": "2023-12-04T14:41:17.000000Z"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "example": "2023-12-04T14:41:17.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
