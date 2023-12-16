@@ -12,12 +12,10 @@ cd ToDoFront
 
 npm install
 
-npm run build
-
 npm run dev
 
 Front:
 http://localhost:5173
 
-Swagger:
-http://127.0.0.1:8000/api/documentation
+//Postman
+https://www.postman.com/thera1d/workspace/feedback-workspace/collection/24820863-9921304d-44d2-4acf-a9a1-54b7702d83f7?action=share&creator=24820863
