@@ -23,7 +23,7 @@ class AuthController extends Controller
         $this->middleware('auth:api', ['except' => ['login', 'register']]);
     }
 
-    public function login(Request $request)
+    public function login(Request $request): JsonResponse
     {
         $credentials = $request->validate([
             'email' => 'required|string|email',
@@ -41,7 +41,7 @@ class AuthController extends Controller
         ], 402);
     }
 
-    public function register(Request $request)
+    public function register(Request $request): JsonResponse
     {
         try {
             $validator = Validator::make($request->all(), [
@@ -70,7 +70,7 @@ class AuthController extends Controller
         }
     }
 
-    public function logout()
+    public function logout(): JsonResponse
     {
         Auth::user()->tokens()->delete();
         return response()->json([

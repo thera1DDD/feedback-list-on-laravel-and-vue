@@ -1,8 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import ToDo from '../components/ToDo.vue';
-import Login from '../Pages/Login.vue';
-import Register from '../Pages/Registration.vue';
-import Seeds from '../Pages/Seeds.vue';
+import Feedback from '../Pages/Admin/Feedback.vue';
+import FeedbackUser from '../Pages/User/Feedback.vue';
+import Login from '../Pages/Auth/Login.vue';
+import Register from '../Pages/Auth/Registration.vue';
+import Swagger from '../Pages/Swagger/Swagger.vue';
+import SuccessFeedback from '../components/SuccessFeedback.vue';
 import process from 'process'
 
 const router = createRouter({
@@ -11,7 +13,7 @@ const router = createRouter({
     {
           path: '/',
           name: 'main',
-          component:ToDo
+          component:Feedback
     },
     {
           path: '/login',
@@ -19,22 +21,25 @@ const router = createRouter({
           component:Login
     },
     {
-          path: '/seeds',
-          name: 'seeds.index',
-          component:Seeds
+          path: '/user',
+          name: 'user.index',
+          component:FeedbackUser
     },
     {
-      path: '/registration',
-      name: 'registration.index',
-      component: Register
+           path: '/registration',
+           name: 'registration.index',
+           component: Register
     },
-    //
-    // {
-    //   path: '/login',
-    //   name: 'login.index',
-    //   component:() =>import('../views/users/Login.vue')
-    // },
-
+    {
+          path: '/notification',
+          name: 'notification.index',
+          component:SuccessFeedback
+    },
+    {
+          path: '/swagger',
+          name: 'swagger.index',
+          component:Swagger
+    },
   ]
 })
 router.beforeEach((to,from,next)=>{

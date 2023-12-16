@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Новая заметка</title>
+    <title>Уведомление</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -69,15 +69,12 @@
 </head>
 <body>
 <header>
-    <h1>Новая заметка</h1>
+    <h1>Ответ руководства</h1>
 </header>
 
 <section>
-    <h2>От пользователя {{ \App\Models\User::find($data['users_id'])->name }}</h2>
-
-    <p><strong>Занятие: </strong>{{ $data['case'] }}</p>
-    <p><strong>Описание: </strong>{{ $data['description'] }}</p>
-    <p><strong>Статус: </strong><span class="status {{ $data['is_completed'] == 1 ? 'status-yes' : 'status-no' }}">{{ $data['is_completed'] == 1 ? '✔ Готово' : '✗ Не готово' }}</span></p>
+    <p><strong>Комментарий: </strong>{{ $data['comment'] }}</p>
+    <p><strong>Статус: </strong><span class="status {{ $data['status'] == 'Resolved' ? 'status-yes' : 'status-no' }}">{{ $data['status'] == 'Resolved' ? '✔' : '✗' }}</span></p>
 </section>
 </body>
 </html>

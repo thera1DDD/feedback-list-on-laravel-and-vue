@@ -18,7 +18,10 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav mr-auto mt-2 mt-md-0">
                         <li class="nav-item active">
-                            <a style="font-weight:bold " class="nav-link" href="seeds">Seeds</a>
+                            <a style="font-weight:bold " class="nav-link" href="user">Feedback</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a style="font-weight:bold " class="nav-link" href="swagger">Postman Swagger</a>
                         </li>
                         <!-- Добавленная категория -->
                     </ul>

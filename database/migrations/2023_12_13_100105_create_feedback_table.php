@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('to_do_lists', function (Blueprint $table) {
+        Schema::create('feedback', function (Blueprint $table) {
             $table->id();
-            $table->string('case');
-            $table->string('description');
-            $table->tinyInteger('is_completed');
+            $table->string('name');
+            $table->string('email')->unique()->nullable();
+            $table->enum('status', ['Active', 'Resolved'])->default('Active');
+            $table->text('message');
+            $table->text('comment')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('to_do_lists');
+        Schema::dropIfExists('feedback');
     }
 };

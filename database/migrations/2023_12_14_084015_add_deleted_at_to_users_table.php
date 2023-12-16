@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('to_do_lists', function (Blueprint $table) {
-            $table->foreignId('users_id')->nullable()->index()->constrained('users')
-                ->onDelete('cascade');
+        Schema::table('users', function (Blueprint $table) {
+            $table->softDeletes();
         });
     }
 
@@ -22,9 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('to_do_lists', function (Blueprint $table) {
-            $table->dropForeign('to_do_lists_users_id_foreign');
-            $table->dropColumn('users_id');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('deleted_at');
         });
     }
 };

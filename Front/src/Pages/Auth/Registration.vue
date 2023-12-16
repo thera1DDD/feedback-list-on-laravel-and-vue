@@ -61,7 +61,7 @@ export default {
     name: "Login.vue",
     data() {
         return {
-            API_URL:'http://127.0.0.1:8000',
+            API_URL: import.meta.env.VITE_BASE_API_URL,
             name:null,
             email: '',
             password: '',
@@ -72,7 +72,7 @@ export default {
 
     methods:{
         register() {
-            axios.post(`${this.API_URL}/api/register`, {
+            axios.post(this.API_URL + '/register', {
                 name: this.name,
                 email: this.email,
                 password: this.password,

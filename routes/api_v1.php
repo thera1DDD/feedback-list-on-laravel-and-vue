@@ -19,17 +19,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('/todo',\App\Http\Controllers\API\V1\ToDoController::class);
-
-
 
 Route::controller(\App\Http\Controllers\API\V1\Auth\AuthController::class)->group(function () {
     Route::post('login', 'login');
     Route::post('register', 'register');
-    Route::post('logout', 'logout');
 });
 
-Route::group(['prefix'=>'seed'],function (){
-    Route::post('/launch',[\App\Http\Controllers\API\V1\SeedController::class,'runSeeder'])->name('seeder.launch');
+Route::group(['prefix'=>'feedback'],function (){
+    Route::get('/get',[\App\Http\Controllers\API\V1\Feedback\FeedbackController::class,'getFeedback'])->name('feedback.get');
+    Route::post('/post',[\App\Http\Controllers\API\V1\Feedback\FeedbackController::class,'postFeedback'])->name('feedback.post');
+    Route::put('/answer/{id}',[\App\Http\Controllers\API\V1\Feedback\FeedbackController::class,'answerFeedback'])->name('feedback.answer');
+    Route::get('/filter',[\App\Http\Controllers\API\V1\Feedback\FeedbackController::class,'filter'])->name('feedback.filter');
 });
 
